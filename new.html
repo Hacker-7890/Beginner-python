@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>tst</title>
+
+	<style type="text/css">
+		#img{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			top:100px;
+		}
+	</style>
+	<script type="text/javascript">
+
+		var y=100
+		function x(argument) {
+			// body...
+			im = document.getElementById('img')
+			
+
+			y=y+10
+
+			if (y==300) {
+				alert("acabou o jogo")
+				y=100
+			}else{
+				im.style.top=y+"px"
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+<br><br><br>
+
+<button onclick="x()">clique</button>
+
+<button>clique</button>
+
+<button>clique</button>
+<br><br><br>
+<img id="img" src="src/m.png">
+</body>
+</html>

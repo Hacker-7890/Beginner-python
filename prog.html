@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+<style type="text/css">
+	.tst{
+		width:400px; 
+		height: 200px;
+		background: red;
+	}
+	
+	.tst: hover{
+		background: green;
+	}
+</style>
+<script type="text/javascript">
+	
+	window.onload=function (argument) {
+		// body...
+
+		cl=document.getElementsByClassName('tst')
+
+			for (var i = 0; i < cl.length; i++) {
+				cl[i].onmouseover=function(e) {	e.target.style.background="green"
+
+				}
+
+				cl[i].onmouseout=function(e) {	e.target.style.background="red"
+
+				}
+			}
+	}
+</script>
+</head>
+<body>
+
+
+<div class="tst">clica aqui</div>
+<div class="tst">clica aqui</div>
+<div class="tst">clica aqui</div>
+
+
+</html>

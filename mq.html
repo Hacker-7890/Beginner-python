@@ -1,0 +1,372 @@
+<!Doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>maq</title>
+
+	<script type="text/javascript">
+		
+		window.onload=function () {
+			// body...
+
+
+
+			document.body.style.height=window.innerHeight+"px"
+			cnt= document.getElementById('cnt')
+			k=document.getElementsByClassName('k')
+			clr= document.getElementById('clr')
+				all=document.getElementsByClassName("all")
+					op= document.getElementById('op')
+					w= document.getElementById('w')
+					h= document.getElementById('h')
+					lf= document.getElementById('lf')
+					tp= document.getElementById('tp')
+					brd= document.getElementById('brd')
+					radi= document.getElementById('radi')
+					put= document.getElementById('put')
+					tk= document.getElementById('tk')
+						txt= document.getElementById('txt')
+						inner= document.getElementById('inner')
+						sr= document.getElementById('src')
+							del= document.getElementById('rem')
+							tg= document.getElementById('tg')
+						tk.onclick=function() {
+								
+						if (txt.style.display=="block") {
+							txt.style.display="none"
+					
+						}else{
+							txt.style.display="block"
+						txt.value=cnt.innerHTML
+						}
+						
+					}
+
+
+			for (var i = 0; i < k.length; i++) {
+				k[i].onclick=function (arg) {
+					// body...
+
+
+			function img(id,ch){
+			
+			ch2=document.getElementById(ch)
+			img =document.createElement("img")
+			img.style.width="20%";
+			img.style.height="20%"
+			img.style.position="absolute";
+			img.src="img/img.png"
+			img.id=id
+			img.setAttribute("class","all")
+			ch2.appendChild(img)
+			}
+
+			function div(id,ch){
+			ch3=document.getElementById(ch)
+			div =document.createElement("div")
+			div.style.width="10%";
+			div.style.height="10%"
+			div.id=id
+			div.style.position="absolute"
+			div.style.background="dodgerblue"
+			div.setAttribute("class","all")
+			ch3.appendChild(div)
+			}
+
+			function input(id,ch){
+			ch4=document.getElementById(ch)
+			input =document.createElement("input")
+			input.style.width="30%";
+			input.style.height="5%"
+			input.style.borderRadius="10px";
+			input.style.position="absolute";
+			input.style.background="#fff"
+			input.id=id
+			input.type="text"
+			input.setAttribute("class","all")
+			ch4.appendChild(input)
+			}
+				function button(id,ch){
+					ch2=document.getElementById(ch)
+			btn =document.createElement("button")
+			btn.style.width="10%";
+			btn.style.height="10%"
+			btn.style.position="absolute";
+			btn.style.background="dodgerblue"
+			btn.setAttribute("class","all")
+			btn.id=id
+			ch2.appendChild(btn)
+			}
+			imgc=document.getElementsByClassName("all")
+
+				if(arg.target.id=="img"){
+					img("img"+imgc.length,op.value)
+				}
+				if (arg.target.id=="div") {
+					div("div"+imgc.length,op.value)
+				}
+				if (arg.target.id=="input") {
+					input("input"+imgc.length,op.value)
+				}
+
+				if (arg.target.id=="button") {
+					button("button"+imgc.length,op.value)
+				}
+				
+				for (var i = 0; i < all.length; i++) {
+					
+					
+					all[i].onclick=function (e) {
+						// body...
+						tag=e.target.id
+						op.value=e.target.id
+						tg.innerHTML=e.target.parentNode.id
+					
+						w.value=e.target.style.width
+						h.value=e.target.style.height
+						clr.value=e.target.style.background
+						pos.value=e.target.style.position
+						tp.value=e.target.style.top
+						lf.value=e.target.style.left
+						radi.value=e.target.style.borderRadius
+						brd.value=e.target.style.border
+						sr.value=e.target.innerHTML
+						del.onclick=function(){
+							det =document.getElementById(tg.innerHTML)
+
+							det.removeChild(e.target)
+						}
+						put.onclick=function() {
+							e.target.style.width=w.value
+							e.target.style.height=h.value
+							e.target.style.background=clr.value
+							e.target.style.position=pos.value
+							e.target.style.top=tp.value
+							e.target.style.left=lf.value
+							e.target.style.borderRadius=radi.value
+							e.target.style.border=brd.value
+							e.target.style.fontSize=sr.value
+							if (inner.value!="") {
+								e.target.innerHTML=inner.value
+							}
+							
+								
+							
+						}
+						
+				}
+}
+
+				
+			op.innerHTML=""
+								var cv=document.createElement("option")
+						        cv.innerHTML="cnt"
+						        op.appendChild(cv)
+							for (var i = 0; i < all.length; i++) {
+
+								var c=document.createElement("option")
+						        c.innerHTML=all[i].id
+
+
+
+						        op.appendChild(c)
+
+							}	
+
+				}
+			}
+
+
+		}
+	</script>
+
+	<style type="text/css">
+		.k{
+			width:15% ;
+			height: 12%;
+			background: dodgerblue;
+			position: relative;
+		}
+		#cnt{
+			width: 60%;
+			height:60%;
+			background: white;
+			overflow: hidden;
+			border: 1px solid black;
+			position: absolute;
+			left:20%;
+			top:25%;
+		}
+		#clr{
+			position: absolute;
+			bottom:2%;
+			left:2%;
+			background: red;
+		}
+		#op{
+			width: 30%;
+			height: 4%;
+			background: green;
+			position: absolute;
+			top:20%;
+			z-index: 3;
+			left: 35%;
+		}
+		#pos{
+			position: absolute;
+			width:16%;
+			height: 4%;
+			bottom:2%;
+			left:8%;
+			background: white;
+		}
+
+		#w{
+			position: absolute;
+			width:10%;
+			height: 4%;
+			bottom:2%;
+			left:25%;
+			background: white;
+		}
+		#h{
+			position: absolute;
+			width:10%;
+			height: 4%;
+			bottom:2%;
+			left:36%;
+			background: white;
+		}
+
+		#tp{
+			position: absolute;
+			width:10%;
+			height: 4%;
+			bottom:2%;
+			left:47%;
+			background: white;
+		}
+		#lf{
+			position: absolute;
+			width:10%;
+			height: 4%;
+			bottom:2%;
+			left:57%;
+			background: white;
+		}
+		#brd{
+			position: absolute;
+			width:10%;
+			height: 4%;
+			bottom:2%;
+			left:68%;
+			background: white;
+		}
+		#radi{
+			position: absolute;
+			width:10%;
+			height: 4%;
+			bottom:2%;
+			left:79%;
+			background: white;
+		}
+
+		#put{
+			position: absolute;
+			width:9%;
+			height: 4%;
+			bottom:3%;
+			left:90%;
+			
+		}
+
+		#txt{
+			width: 60%;
+			height: 60%;
+			background: #ccc;
+			border:1px solid dodgerblue;
+			position: absolute;
+			top: 20%;
+			left: 20%;
+			display: none;
+		}
+
+		#tk{
+			position: absolute;
+			width:9%;
+			height: 4%;
+			bottom:11%;
+			left:90%;
+			
+		}
+			#inner{
+			position: absolute;
+			width:9%;
+			height: 4%;
+			bottom:20%;
+			left:90%;
+			
+		}
+
+		#src{
+			position: absolute;
+			width:9%;
+			height: 4%;
+			bottom:30%;
+			left:90%;
+			
+		}
+		
+		#rem{
+			position: absolute;
+			width:9%;
+			height: 4%;
+			bottom:40%;
+			left:90%;
+			background: red;
+		}
+	</style>
+</head>
+
+<body>
+<button  class="k" id="img">imagem</button>
+<button class="k" id="input">texto</button>
+<button class="k" id="div">div</button>
+
+<button class="k" id="button">botao</button>
+<select id="op">
+	<option>cnt</option>
+</select>
+
+<select id="pos">
+	<option>absolute</option>
+	<option>relative</option>
+	
+</select>
+
+<input  type="color" id="clr">
+
+<input placeholder="width" type="text" value="10%" id="w">
+
+
+<input placeholder="height" type="text" value="10%" id="h">
+
+
+<input placeholder="top" type="text" value="0%" id="tp">
+<input placeholder="left" type="text" value="0%" id="lf">
+<input placeholder="border" type="text" id="brd">
+<input placeholder="border radius" type="text" id="radi">
+<input placeholder="text" type="text" id="inner">
+<input placeholder="size" type="text" id="src">
+<h1 align="center" id="tg">cnt</h1>
+<button id="rem">delete</button>
+<button id="put">colocar</button>
+
+<button id="tk">pegar</button>
+
+<div id="cnt"></div>
+<textarea id="txt"></textarea>
+
+</body>
+</html>

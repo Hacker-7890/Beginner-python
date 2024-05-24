@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<script type="text/javascript">
+		window.onload=function() {
+
+			
+
+			m = document.getElementsByClassName('m')
+
+
+			function ajx(fl){
+
+			http = new XMLHttpRequest()
+
+			http.onreadystatechange=function(){
+				if(this.readyState==4 && this.status == 200){
+					return this.responseText
+				}
+			}
+			http.open('Get',fl,true)
+			http.send()
+		}
+
+		for (var i =0; i < m.length; i++) {
+			m[i].ontouchstart=function (evt) {
+				// body...
+				ajx("@"+evt.target.id)
+				wait = setInterval(espere,100)
+				function espere() {
+					// body...
+					ajx("@"+evt.target.id)
+				}
+				for (var i = m.length - 1; i >= 0; i--) {
+					m[i].ontouchend=function (evt) {
+					clearInterval(wait)
+					
+				}
+				}
+
+		}
+	}
+
+}
+
+	</script>
+	<style type="text/css">
+		.m{
+			width: 18%;
+			height: 19%;
+			border-radius: 10px;
+			border:1px solid white;
+			position: absolute;
+		}
+		
+		#cima{
+			top:10%;
+			left:44%;
+		}
+		#baixo{
+			top:54%;
+			left:44%;
+		}
+
+		#esq{
+			top:32%;
+			left:26%;
+		}
+		#dir{
+			top:32%;
+			left:62%;
+		}
+		.m:active{
+			background: #000;
+			border: 1px solid white;
+		}
+	</style>
+</head>
+<body>
+
+
+<button class="m" id="cima"></button>
+    <button class="m" id="baixo"></button>
+    <button class="m" id="esq"></button>
+    <button class="m" id="dir"></button>
+</body>
+</html>
